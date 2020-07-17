@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+      <title>HTML wireframe for character entry</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.css">
+      <link rel="stylesheet" type="text/css" href="main.css">
+  </head>
+
+  <body>
+    <nav role="navigation">Nav</nav>
+    <main role="main">
+      <header>
+        <h1>Character entry</h1>
+      </header>
+      <section>
+        <form id="position-selection">
+          <div class="form-section">
+            <label for="game-number">Game number</label>
+            <select name="game-number" id="game-number">
+              <option value="first-game">345</option>
+              <option value="second-game">367</option>
+              <option value="third-game">411</option>
+              <!-- these options values will be replaced by actual game numbers the user has entered -->
+            </select>
+          </div>
+        </form>
+        <form id="character-entry">
+          <div class="form-section">
+            <label for="character-name">Character name:</label>
+            <input type="text" name="character-name" placeholder="Conan" required>
+          </div>
+          <div class="form-section">
+            <label for="character-id">Character ID:</label>
+            <input type="text" name="character-id" placeholder="AQUI-20" required>
+          </div>
+          <div class="form-section">
+            <label for="character-age">Character age:</label>
+            <select name="character-age" id="character-age">
+              <option value="youth">Youth</option>
+              <option value="young-adult">Young adult</option>
+              <option value="prime">Prime of life</option>
+              <option value="middle-aged">Middle aged</option>
+              <option value="old">Old</option>
+              <option value="ancient">Ancient</option>
+            </select>
+          </div>
+          <div class="form-section">
+            <label for="location">Present location:</label>
+            <input type="text" name="location" placeholder="Tarantia" required>
+          </div>
+          <div class="form-section">
+            <label for="personal-combat">Personal combat:</label>
+            <select name="ability-score" id="ability-score">
+              <option value="none">None</option>
+              <option value="poor">Poor</option>
+              <option value="adequate">Adequate</option>
+              <option value="good">Good</option>
+              <option value="excellent">Excellent</option>
+              <option value="superior">Superior</option>
+            </select>
+          </div>
+          <div class="form-section">
+            <label for="diplomacy">Diplomacy:</label>
+            <select name="ability-score" id="ability-score">
+              <option value="none">None</option>
+              <option value="poor">Poor</option>
+              <option value="adequate">Adequate</option>
+              <option value="good">Good</option>
+              <option value="excellent">Excellent</option>
+              <option value="superior">Superior</option>
+            </select>
+          </div>
+          <div class="form-section">
+            <label for="rulership">Rulership:</label>
+            <select name="ability-score" id="ability-score">
+              <option value="none">None</option>
+              <option value="poor">Poor</option>
+              <option value="adequate">Adequate</option>
+              <option value="good">Good</option>
+              <option value="excellent">Excellent</option>
+              <option value="superior">Superior</option>
+            </select>
+          </div>
+          <div class="form-section">
+            <label for="military-command">Military command:</label>
+            <select name="ability-score" id="ability-score">
+              <option value="none">None</option>
+              <option value="poor">Poor</option>
+              <option value="adequate">Adequate</option>
+              <option value="good">Good</option>
+              <option value="excellent">Excellent</option>
+              <option value="superior">Superior</option>
+            </select>
+          </div>
+          <div class="form-section">
+            <label for="heroism">Heroism:</label>
+            <select name="ability-score" id="ability-score">
+              <option value="none">None</option>
+              <option value="poor">Poor</option>
+              <option value="adequate">Adequate</option>
+              <option value="good">Good</option>
+              <option value="excellent">Excellent</option>
+              <option value="superior">Superior</option>
+            </select>
+          </div>
+          <div class="form-section">
+            <label for="intrigue">Intrigue:</label>
+            <select name="ability-score" id="ability-score">
+              <option value="none">None</option>
+              <option value="poor">Poor</option>
+              <option value="adequate">Adequate</option>
+              <option value="good">Good</option>
+              <option value="excellent">Excellent</option>
+              <option value="superior">Superior</option>
+            </select>
+          </div>
+          <div class="form-section">
+            <label for="magic">Magic:</label>
+            <select name="ability-score" id="ability-score">
+              <option value="none">None</option>
+              <option value="poor">Poor</option>
+              <option value="adequate">Adequate</option>
+              <option value="good">Good</option>
+              <option value="excellent">Excellent</option>
+              <option value="superior">Superior</option>
+            </select>
+          </div>
+          <button type='submit'>Submit</button>
+        </form>
+      </section>
+    </main>
+  </body>
+
+</html>

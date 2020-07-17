@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+      <title>HTML wireframe for position entry</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.css">
+      <link rel="stylesheet" type="text/css" href="main.css">
+  </head>
+
+  <body>
+    <nav role="navigation">Nav</nav>
+    <main role="main">
+      <header>
+        <h1>New Position</h1>
+      </header>
+      <section>
+        <form id="position-entry">
+          <div class="form-section">
+            <label for="game-number">Game number</label>
+            <input type="number" name="game-number" placeholder="999" required>
+          </div>
+          <div class="form-section">
+            <label for="position-number">Position number</label>
+            <input type="number" name="game-number" min="1" max="36" placeholder=1 required>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </main>
+  </body>
+
+</html>
