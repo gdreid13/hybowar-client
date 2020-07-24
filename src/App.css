@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: gray;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +35,24 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+ul {
+  list-style-type: none;
+  overflow: auto;
+}
+
+li {
+  display: inline-block;
+  padding: 10px;
+}
+
+section {
+  min-height: 200px;
+  padding: 6% 0;
+  background-color: #bbb;
+}
+
+section:nth-child(even) {
+  background-color: #ddd;
 }
