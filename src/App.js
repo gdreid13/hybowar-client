@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, Switch } from 'react-router-dom';
 import LoginPage from './LoginPage';
 import RegistrationPage from './RegistrationPage';
 import DemoPage from './DemoPage';
@@ -13,7 +13,7 @@ export default class App extends Component {
 
   renderNavRoutes() {
     return (
-      <>
+      <Switch>
         <Route
           path="/login"
           component={LoginPage}
@@ -31,13 +31,13 @@ export default class App extends Component {
           <li><Link to="/register">Register</Link></li>
           <li><Link to="/demo">Demo</Link></li>
         </ul>
-      </>
+      </Switch>
     )
   }
 
   renderMainRoutes() {
     return (
-      <>
+      <Switch>
         <Route
           path="/characters"
           component={CharacterDisplay}
@@ -50,7 +50,7 @@ export default class App extends Component {
           path="/position"
           component={PositionSelection}
         />
-      </>
+      </Switch>
     )
   }
 
