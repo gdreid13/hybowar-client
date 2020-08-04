@@ -5,29 +5,35 @@ import PositionService from '../../services/PositionService'
 export default class PositionSelectionPage extends Component {
   static ContextType = PositionContext
 
-  componentDidMount () {
+  componentDidMount() {
     this.context.clearError()
     PositionService.getPositions()
+      .then(this.context.setPositions)
+      .catch(this.context.setError)
 
   }
-   
-  render() {
-    const { positions } = this.props
-    return (
-      <form id="position-selection">
-        <div className="form-section">
-          <label htmlFor="position-selection">Game number</label>
-          <select name="position" id="position">
-            <PositionOption />
-          </select>
-        </div>
-      </form>
+
+  renderPositions() {
+    const { positions = [] } = this.context
+    return positions.map(positions =>
+      <option value={position.game_number}>
+        Game {position.game-number}, Nation {position.position}
+      </option>
     )
   }
+
+  render() {
+    return (
+      <form className="position-selection-page">
+        <select name="position" id="position">
+        {error
+          ? <p className='red'>There was an error, try again</p>
+          : this.renderPositions()}
+        </select>
+      </form>
+  )}
+
 }
 
-function PositionOption({ position }) {
-  return (
-    <option className="position-option">Game {position.game_number}, Nation {position.position}</option>
-  )
-}
+
+

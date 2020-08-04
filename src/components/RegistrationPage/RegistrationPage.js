@@ -3,10 +3,18 @@ import AuthHelperService from '../../services/AuthHelperService';
 
 export default class RegistrationPage extends Component {
   static defaultProps = {
-    onRegistrationSuccess: () => { }
+    onRegistrationSuccess: () => { },
+    history: {
+      push: () => {},
+    },
   }
 
   state = { error: null }
+
+  handleRegistrationSuccess = user => {
+    const { history } = this.props
+    history.push('/login')
+  }
 
   handleSubmit = ev => {
     ev.preventDefault()
@@ -32,7 +40,7 @@ export default class RegistrationPage extends Component {
     const { error } = this.state
 
     return (
-      <section className="registration-page">
+      <section className="registration-page" onRegistrationSuccess={this.handleRegistrationSuccess}>
         <header>
           <h3>Register for an account</h3>
         </header>
@@ -59,6 +67,7 @@ export default class RegistrationPage extends Component {
             />
           </div>
           <button type='submit'>Create an account</button>
+          
         </form>
       </section>
     )
