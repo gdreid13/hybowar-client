@@ -6,16 +6,16 @@ export default class CharacterDisplay extends Component {
       <div className="Character-display">
         <section>
           <form id="character-entry">
-            <div class="form-section">
-              <label for="character-name">Character name:</label>
+            <div className="form-section">
+              <label htmlFor="character-name">Character name:</label>
               <input type="text" name="character-name" placeholder="Conan" required />
             </div>
-            <div class="form-section">
-              <label for="character-id">Character ID:</label>
+            <div className="form-section">
+              <label htmlFor="character-id">Character ID:</label>
               <input type="text" name="character-id" placeholder="AQUI-20" required />
             </div>
-            <div class="form-section">
-              <label for="character-age">Character age:</label>
+            <div className="form-section">
+              <label htmlFor="character-age">Character age:</label>
               <select name="character-age" id="character-age">
                 <option value="youth">Youth</option>
                 <option value="young-adult">Young adult</option>
@@ -25,12 +25,12 @@ export default class CharacterDisplay extends Component {
                 <option value="ancient">Ancient</option>
               </select>
             </div>
-            <div class="form-section">
-              <label for="location">Present location:</label>
+            <div className="form-section">
+              <label htmlFor="location">Present location:</label>
               <input type="text" name="location" placeholder="Tarantia" required />
             </div>
-            <div class="form-section">
-              <label for="personal-combat">Personal combat:</label>
+            <div className="form-section">
+              <label htmlFor="personal-combat">Personal combat:</label>
               <select name="ability-score" id="ability-score">
                 <option value="none">None</option>
                 <option value="poor">Poor</option>
@@ -40,8 +40,8 @@ export default class CharacterDisplay extends Component {
                 <option value="superior">Superior</option>
               </select>
             </div>
-            <div class="form-section">
-              <label for="diplomacy">Diplomacy:</label>
+            <div className="form-section">
+              <label htmlFor="diplomacy">Diplomacy:</label>
               <select name="ability-score" id="ability-score">
                 <option value="none">None</option>
                 <option value="poor">Poor</option>
@@ -51,8 +51,8 @@ export default class CharacterDisplay extends Component {
                 <option value="superior">Superior</option>
               </select>
             </div>
-            <div class="form-section">
-              <label for="rulership">Rulership:</label>
+            <div className="form-section">
+              <label htmlFor="rulership">Rulership:</label>
               <select name="ability-score" id="ability-score">
                 <option value="none">None</option>
                 <option value="poor">Poor</option>
@@ -62,8 +62,8 @@ export default class CharacterDisplay extends Component {
                 <option value="superior">Superior</option>
               </select>
             </div>
-            <div class="form-section">
-              <label for="military-command">Military command:</label>
+            <div className="form-section">
+              <label htmlFor="military-command">Military command:</label>
               <select name="ability-score" id="ability-score">
                 <option value="none">None</option>
                 <option value="poor">Poor</option>
@@ -73,8 +73,8 @@ export default class CharacterDisplay extends Component {
                 <option value="superior">Superior</option>
               </select>
             </div>
-            <div class="form-section">
-              <label for="heroism">Heroism:</label>
+            <div className="form-section">
+              <label htmlFor="heroism">Heroism:</label>
               <select name="ability-score" id="ability-score">
                 <option value="none">None</option>
                 <option value="poor">Poor</option>
@@ -84,8 +84,8 @@ export default class CharacterDisplay extends Component {
                 <option value="superior">Superior</option>
               </select>
             </div>
-            <div class="form-section">
-              <label for="intrigue">Intrigue:</label>
+            <div className="form-section">
+              <label htmlFor="intrigue">Intrigue:</label>
               <select name="ability-score" id="ability-score">
                 <option value="none">None</option>
                 <option value="poor">Poor</option>
@@ -95,8 +95,8 @@ export default class CharacterDisplay extends Component {
                 <option value="superior">Superior</option>
               </select>
             </div>
-            <div class="form-section">
-              <label for="magic">Magic:</label>
+            <div className="form-section">
+              <label htmlFor="magic">Magic:</label>
               <select name="ability-score" id="ability-score">
                 <option value="none">None</option>
                 <option value="poor">Poor</option>

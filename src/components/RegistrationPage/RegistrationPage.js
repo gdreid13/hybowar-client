@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AuthHelperService from '../../services/AuthHelperService';
 
 export default class RegistrationPage extends Component {
   static defaultProps = {
@@ -11,12 +12,20 @@ export default class RegistrationPage extends Component {
     ev.preventDefault()
     const { user_name, password } = ev.target
 
-    console.log('registration form submitted')
-    console.log({ user_name, password })
+    this.setState({ error: null })
+    AuthHelperService.postUser({
+      user_name: user_name.value,
+      password: password.value,
+    })
+      .then(user => {
 
-//    user_name.value = ''
-//    password.value = ''
-    this.props.onRegistrationSuccess()
+        user_name.value = ''
+        password.value = ''
+        this.props.onRegistrationSuccess()
+      })
+      .catch(res => {
+        this.setState({ error: res.message })
+      })
   }
 
   render() {

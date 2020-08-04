@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import CharacterDisplay from './CharacterDisplay';
-import PositionSelection from './PositionSelection';
+import CharacterDisplay from '../CharacterDisplay/CharacterDisplay';
+import PositionSelection from '../PositionSelection/PositionSelection';
 
 export default class DemoPage extends Component {
   render () {
