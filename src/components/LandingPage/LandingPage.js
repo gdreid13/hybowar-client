@@ -11,7 +11,8 @@ export default class LandingPage extends Component {
         </header>
         <section>
           <h2>Keep track of all your position's characters, provinces, and armies here</h2>
-          <p>[<em>placeholder for screenshot of how position's assets are displayed</em>]</p>
+          <Link to="/positions/1">Click here to see a positions display</Link>
+          <Link to="/characters/1/1">Click here to see a character display</Link>
         </section>
 
         <section>

@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
 
-const PositionContext = React.createContext({
-  positions: [],
+const CharacterContext = React.createContext({
+  characters: [{ }],
   error: null,
   setError: () => {},
   clearError: () => {},
-  setPositions: () => {},
+  setCharacters: () => {},
 })
 
-export default PositionContext
+export default CharacterContext
 
-export class PositionProvider extends Component {
+export class CharacterProvider extends Component {
   state = {
     positions: [],
     error: null,
   }
 
-  setPositions = positions => {
-    this.setState({ positions })
+  setCharacters = characters => {
+    this.setState({ characters })
   }
 
   setError = error => {
@@ -31,17 +31,18 @@ export class PositionProvider extends Component {
 
   render () {
     const value = {
-      positions: this.state.positions,
+      characters: this.state.characters,
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError,
-      setPositions: this.setPositions,
+      setCharacters: this.setCharacters,
     }
     return (
-      <PositionContext.Provider value={value}>
+      <CharacterContext.Provider value={value}>
         {this.props.children}
-      </PositionContext.Provider>
+      </CharacterContext.Provider>
     )
   }
   
 }
+

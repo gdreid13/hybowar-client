@@ -4,10 +4,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
 import * as serviceWorker from './serviceWorker';
+import PositionContext, { PositionProvider } from './components/contexts/PositionContext';
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+
+      <PositionProvider>
+        <App />
+      </PositionProvider>
+
+
   </BrowserRouter>,
   document.getElementById('root')
 );
