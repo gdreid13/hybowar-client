@@ -1,9 +1,11 @@
 import config from '../config'
+import TokenService from '../services/TokenService'
 
 const PositionService = {
   getPositions() {
     return fetch(`${config.API_ENDPOINT}/positions/:userId`, {
       headers: {
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then(res =>
