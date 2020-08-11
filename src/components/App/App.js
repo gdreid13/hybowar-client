@@ -3,13 +3,25 @@ import { Route, Switch } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar'
 import CharacterDisplay from '../CharacterDisplay/CharacterDisplay';
 import LandingPage from '../LandingPage/LandingPage';
-import PositionSelectionPage from '../PositionSelectionPage/PositionSelectionPage';
+import PositionSelectionPage from '../../routes/PositionSelectionPage';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
-import LoginPage from '../LoginPage/LoginPage';
-import RegistrationPage from '../RegistrationPage/RegistrationPage';
+import LoginPage from '../../routes/LoginPage';
+import RegistrationPage from '../../routes/RegistrationPage';
+import tokenServices from '../../services/TokenService';
+import config from '../../config';
 import './App.css';
 
 export default class App extends Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+        login: false,
+        hasError: false,
+        user: '',
+        user_id: ''
+      }
+
+  }
   state = { hasError: false }
 
   static getDerivedStateFromError(error) {
@@ -17,7 +29,23 @@ export default class App extends Component {
     return { hasError: true }
   }
 
+  setUser = (user) => {
+		return this.setState({ user: user });
+  };
+
+  setUserId = (userId) => {
+    return this.setState ({ user_id: userId })
+  }
+  
+	componentDidMount() {
+		const authToken = tokenServices.getAuthToken(config.TOKEN_KEY);
+		if (authToken) {
+			this.setState({ login: true });
+		}
+	}
+
   render() {
+    const userId = this.state.user
     return (
       <div className="App">
         <nav className="App-nav">

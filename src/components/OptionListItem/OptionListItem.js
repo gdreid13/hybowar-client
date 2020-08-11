@@ -8,7 +8,7 @@ export default class OptionListItem extends Component {
     return (
       <Link to = {`/characters/1/1`} className='PositionLink'>
         <div>
-          Game number: 986, Nation: Border Kingdom
+
         </div>
       </Link>
     )

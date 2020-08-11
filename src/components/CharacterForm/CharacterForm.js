@@ -1,6 +1,53 @@
 import React, { Component } from 'react';
+import CharacterContext from '../contexts/CharacterContext';
+import CharacterService from '../../services/CharacterService'
 
 export default class CharacterForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      user_id = '',
+    }
+  };
+  static contextType = CharacterContext
+
+
+
+  handleSubmit = ev => {
+    ev.preventDefault()
+    const {
+      character_name,
+      character_id,
+      status,
+      age,
+      location,
+      personal_combat,
+      diplomacy,
+      rulership,
+      military_command,
+      heroism,
+      intrigue,
+      magic,
+      positionId,
+    } = ev.target;
+    const character = {
+      character_name: character_name.value,
+      character_id:  character_id.value,
+      status: status.value,
+      age: age.value,
+      location: location.value,
+      personal_combat: personal_combat.value,
+      diplomacy: diplomacy.value,
+      rulership: rulership.value,
+      military_command: military_command.value,
+      heroism: heroism.value,
+      intrigue: intrigue.value,
+      magic: magic.value,
+      userId: this.state.user_id,
+      positionId: positionId.value,
+    }
+  }
+
   render() {
     return (
       <div className="Character-form">
@@ -8,15 +55,15 @@ export default class CharacterForm extends Component {
           <form id="character-entry">
             <div className="form-section">
               <label htmlFor="character-name">Character name:</label>
-              <input type="text" name="character-name" placeholder="Conan" required />
+              <input name="character_name" placeholder="Conan" required />
             </div>
             <div className="form-section">
               <label htmlFor="character-id">Character ID:</label>
-              <input type="text" name="character-id" placeholder="AQUI-20" required />
+              <input name="character_id" placeholder="AQUI-20" required />
             </div>
             <div className="form-section">
-              <label htmlFor="character-age">Character age:</label>
-              <select name="character-age" id="character-age">
+              <label htmlFor="age">Character age:</label>
+              <select name="age" id="age">
                 <option value="youth">Youth</option>
                 <option value="young-adult">Young adult</option>
                 <option value="prime">Prime of life</option>

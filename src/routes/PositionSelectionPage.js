@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import PositionContext from '../contexts/PositionContext';
-import PositionService from '../../services/PositionService'
-import OptionListItem from '../OptionListItem/OptionListItem'
+import PositionContext from '../components/contexts/PositionContext';
+import PositionService from '../services/PositionService'
+import OptionListItem from '../components/OptionListItem/OptionListItem'
 
 export default class PositionSelectionPage extends Component {
   static contextType = PositionContext
