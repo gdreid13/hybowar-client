@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import TokenService from '../../services/TokenService'
+import TokenServices from '../../services/TokenService'
+import config from '../../config';
 
 export default class Navbar extends Component {
+  componentDidMount() {
+		const authToken = TokenServices.getAuthToken(config.TOKEN_KEY);
+		if (authToken) {
+			this.setState({ login: true });
+		}
+	}
+
   handleLogoutClick = () => {
-    TokenService.clearAuthToken()
+    TokenServices.clearAuthToken()
   }
 
   renderLogoutLink() {
@@ -33,6 +41,19 @@ export default class Navbar extends Component {
       </div>
     )
   }
+
+  renderPositionsLink() {
+    return (
+      <div className='Header__link-to-app'>
+        <Link
+        to={`/positions/${this.props.user_id}`}>
+          List of your positions
+        </Link>
+      </div>
+    )
+  }
+
+
   render() {
     return (
       <nav className='Header'>
@@ -42,8 +63,8 @@ export default class Navbar extends Component {
             Hyborian War Helper
           </Link>
         </h1>
-        {TokenService.hasAuthToken()
-          ? this.renderLogoutLink()
+        {!!this.props.login
+          ? this.renderLogoutLink() 
           : this.renderLoginLink()}
       </nav>
     )

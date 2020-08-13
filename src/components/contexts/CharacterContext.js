@@ -17,7 +17,7 @@ export class CharacterProvider extends Component {
   }
 
   setCharacters = characters => {
-    this.setState({ characters })
+    return this.setState({ characters })
   }
 
   setError = error => {
@@ -29,6 +29,14 @@ export class CharacterProvider extends Component {
     this.setState({ error: null })
   }
 
+  setUser = (user) => {
+		return this.setState({ user: user });
+  };
+
+  setUserId = (userId) => {
+    return this.setState ({ user_id: userId, login: true })
+  }
+
   render () {
     const value = {
       characters: this.state.characters,
@@ -36,6 +44,8 @@ export class CharacterProvider extends Component {
       setError: this.setError,
       clearError: this.clearError,
       setCharacters: this.setCharacters,
+      setUser: this.setUser,
+      setUserId: this.setUserId
     }
     return (
       <CharacterContext.Provider value={value}>

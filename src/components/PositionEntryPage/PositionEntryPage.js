@@ -1,8 +1,7 @@
-
 import React, { Component } from 'react'
-import LoginForm from '../components/LoginForm/LoginForm'
+import PositionEntryForm from '../PositionEntryForm/PositionEntryForm'
 
-export default class LoginPage extends Component {
+export default class PositionEntryPage extends Component {
   static defaultProps = {
     location: {},
     history: {
@@ -10,20 +9,18 @@ export default class LoginPage extends Component {
     },
   }
 
-  handleLoginSuccess = (userId) => {
+  handlePositionEntrySuccess = (userId, positionId) => {
     const { location, history } = this.props
     const destination = (location.state || {}).from || '/'
     this.props.setUserId(userId)
+    this.props.setPosition(positionId)
     history.push(destination)
   }
 
   render() {
     return (
-      <section className='LoginPage'>
-        <h2>Login</h2>
-        <LoginForm
-          onLoginSuccess={this.handleLoginSuccess}
-        />
+      <section className='PositionEntryPage'>
+        <PositionEntryForm />
       </section>
     )
   }

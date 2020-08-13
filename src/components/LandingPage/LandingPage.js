@@ -3,12 +3,20 @@ import { Link } from 'react-router-dom';
 
 export default class LandingPage extends Component {
   render() {
+    console.log(this.props.userId)
     return (
       <>
         <header className="App-header" role="banner">
           <Link to="/"><h1>Hyborian War Position Organizer</h1></Link>
-          <h2>Log in, register, or sign into the demo account to get started</h2>
+          <h2>Log in or register to get started</h2>
         </header>
+        {this.props.userId == true &&
+        <section>
+          <Link to="/positions" userId={this.props.userId}>
+            Click here to enter a new position
+          </Link>
+        </section>
+        }
         <section>
           <h2>Keep track of all your position's characters, provinces, and armies here</h2>
           <Link to="/positions/1">Click here to see a positions display</Link>

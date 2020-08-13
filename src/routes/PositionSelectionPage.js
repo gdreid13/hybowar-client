@@ -20,6 +20,7 @@ export default class PositionSelectionPage extends Component {
     const { positions = [] } = this.context
     return positions.map(position =>
       <OptionListItem
+        userId = {this.props.userId}
         game = {position.game_number}
         nation = {position.nation}
       />

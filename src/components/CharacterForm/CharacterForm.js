@@ -13,7 +13,7 @@ export default class CharacterForm extends Component {
 
 
 
-  handleSubmit = ev => {
+  handleSubmitCharacter = ev => {
     ev.preventDefault()
     const {
       character_name,

@@ -4,18 +4,12 @@ import AuthHelperService from '../../services/AuthHelperService';
 import { Link } from 'react-router-dom';
 
 export default class LoginPage extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { error: null }
-  }
 
   static defaultProps = {
     onLoginSuccess: () => {}
   }
 
-  setUserId = (userId) => {
-    return this.setState ({ user_id: userId })
-  }
+
 
   handleSubmitJwtAuth = ev => {
     ev.preventDefault()
@@ -29,14 +23,16 @@ export default class LoginPage extends Component {
     AuthHelperService.postLogin(JSON.stringify(login))
       .then(res => {
         console.log(res);
+        // setUserId(payload.userId);
+        // console.log(this.state.userId);
         TokenService.saveAuthToken(res.authToken)
         user_name.value = ''
         password.value = ''
-        this.props.onLoginSuccess()
+        this.props.onLoginSuccess(res.userId)
       })
       .catch(res => {
         this.setState({ error: res.error })
-        alert(JSON.stringify(this.state.error), this.state.error)
+        alert(JSON.stringify(this.state.error))
       })
   }
 

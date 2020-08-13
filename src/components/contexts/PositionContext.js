@@ -16,8 +16,8 @@ export class PositionProvider extends Component {
     error: null,
   }
 
-  setPositions = positions => {
-    this.setState({ positions })
+  setPosition = position => {
+    return this.setState({ position: position })
   }
 
   setError = error => {
@@ -29,6 +29,15 @@ export class PositionProvider extends Component {
     this.setState({ error: null })
   }
 
+  
+  setUser = (user) => {
+		return this.setState({ user: user });
+  };
+
+  setUserId = (userId) => {
+    return this.setState ({ user_id: userId, login: true })
+  }
+
   render () {
     const value = {
       positions: this.state.positions,
@@ -36,6 +45,8 @@ export class PositionProvider extends Component {
       setError: this.setError,
       clearError: this.clearError,
       setPositions: this.setPositions,
+      setUser: this.setUser,
+      setUserId: this.setUserId
     }
     return (
       <PositionContext.Provider value={value}>
