@@ -45,7 +45,6 @@ export default class App extends Component {
   }
 
   render() {
-    const userId = this.state.user_id
     console.log(this.state)
     return (
       <div className="App">
@@ -62,7 +61,7 @@ export default class App extends Component {
             <Route
               exact
               path={'/'}
-              render={() => <LandingPage userId={userId} />}
+              render={() => <LandingPage userId={this.state.user_id} />}
             />
             <Route
               path={'/login'}
@@ -74,15 +73,15 @@ export default class App extends Component {
             />
             <Route
               path={'/positions'}
-              render={() => <PositionEntryPage userId={userId} />}
+              render={() => <PositionEntryPage userId={this.state.user_id} />}
             />
             <Route
               path={'/positions/:userId'}
-              render={() => <PositionSelectionPage userId={userId} />}
+              render={() => <PositionSelectionPage userId={this.state.user_id} />}
             />
             <Route
               path={'/characters/:userId/:positionId'}
-              render={() => <CharacterDisplay userId={userId} />}
+              render={() => <CharacterDisplay userId={this.state.user_id} />}
             />
             <Route
               component={NotFoundPage}
