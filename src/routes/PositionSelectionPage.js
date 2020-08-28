@@ -5,10 +5,17 @@ import OptionListItem from '../components/OptionListItem/OptionListItem'
 
 export default class PositionSelectionPage extends Component {
   static contextType = PositionContext
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+    }
+  }
 
   componentDidMount() {
     this.context.clearError()
-    PositionService.getPositions()
+    console.log(this.state.error)
+    PositionService.getPositions(this.props.userId)
       .then(data => {
         this.context.setPositions(data)
       })
@@ -18,9 +25,11 @@ export default class PositionSelectionPage extends Component {
 
   renderPositions() {
     const { positions = [] } = this.context
+    console.log(positions)
     return positions.map(position =>
       <OptionListItem
         userId = {this.props.userId}
+        positionId = {position.position_id}
         game = {position.game_number}
         nation = {position.nation}
       />

@@ -3,12 +3,16 @@ import config from '../../config'
 import TokenService from '../../services/TokenService'
 import AuthHelperService from '../../services/AuthHelperService'
 import PositionService from '../../services/PositionService'
+import PositionContext from '../contexts/PositionContext'
 
 export default class PositionEntryForm extends Component {
-
-  static defaultProps = {
-    onLoginSuccess: () => {}
-  }
+  constructor(props) {
+    super(props);
+    this.state = { 
+      user_id: '',
+    }
+  };
+  static contextType = PositionContext
 
   handleSubmitPosition = ev => {
     ev.preventDefault()
@@ -17,10 +21,12 @@ export default class PositionEntryForm extends Component {
     const newPosition = {
       game_number: game_number.value,
       nation: nation.value,
-      user_id: this.props.user_id
+      user_id: this.props.userId
     }
     
-    PositionService.postPosition(JSON.stringify(newPosition))
+    console.log(this.props)
+
+    PositionService.postPosition(newPosition.user_id, newPosition.game_number, newPosition.nation)
       .then(res => {
         console.log(res);
       })

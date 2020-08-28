@@ -19,7 +19,8 @@ export default class App extends Component {
       login: false,
       hasError: false,
       user: '',
-      user_id: ''
+      user_id: '',
+      position_id: ''
     }
   }
   state = { hasError: false }
@@ -37,6 +38,10 @@ export default class App extends Component {
     return this.setState({ user_id: userId, login: true })
   }
 
+  setPositionId = (positionId) => {
+    return this.setState ({ position_id: positionId })
+  }
+
   componentDidMount() {
     const authToken = TokenServices.getAuthToken(config.TOKEN_KEY);
     if (authToken) {
@@ -46,6 +51,8 @@ export default class App extends Component {
 
   render() {
     console.log(this.state)
+    const userId = this.state.user_id
+    const positionId = this.state.position_id
     return (
       <div className="App">
         <nav className="App-nav">
@@ -72,16 +79,17 @@ export default class App extends Component {
               component={RegistrationPage}
             />
             <Route
+              exact
               path={'/positions'}
               render={() => <PositionEntryPage userId={this.state.user_id} />}
             />
             <Route
-              path={'/positions/:userId'}
+              path={`/positions/:userId`}
               render={() => <PositionSelectionPage userId={this.state.user_id} />}
             />
             <Route
               path={'/characters/:userId/:positionId'}
-              render={() => <CharacterDisplay userId={this.state.user_id} />}
+              render={() => <CharacterDisplay userId={this.state.user_id} positionId={this.state.position_id}/>}
             />
             <Route
               component={NotFoundPage}

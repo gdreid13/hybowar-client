@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CharacterItem from '../CharacterItem/CharacterItem';
 import CharacterContext from '../contexts/CharacterContext';
 import CharacterService from '../../services/CharacterService';
+import CharacterForm from '../CharacterForm/CharacterForm';
 
 export default class CharacterDisplay extends Component {
   static contextType = CharacterContext
@@ -11,9 +12,9 @@ export default class CharacterDisplay extends Component {
   }
 
   static defaultProps = {
-    characters: [ ]
+    characters: []
   }
-  
+
   componentDidMount() {
     this.context.clearError()
     CharacterService.getCharacters()
@@ -33,9 +34,16 @@ export default class CharacterDisplay extends Component {
     }
 
     return (
-      <div className="Character-section">
-        {this.state.characters}
-      </div>
+      <section>
+        <div className="Character-section">
+          {this.state.characters}
+        </div>
+        <h3>
+          Enter a new character for this position:
+        </h3>
+        <CharacterForm />
+      </section>
+
     )
 
   }

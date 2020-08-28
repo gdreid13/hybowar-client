@@ -16,8 +16,8 @@ export class PositionProvider extends Component {
     error: null,
   }
 
-  setPosition = position => {
-    return this.setState({ position: position })
+  setPositions = positions => {
+    return this.setState({ positions: [...positions] })
   }
 
   setError = error => {

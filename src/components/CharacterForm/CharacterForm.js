@@ -6,12 +6,11 @@ export default class CharacterForm extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-      user_id = '',
+      position_id: '',
+      user_id: '',
     }
   };
   static contextType = CharacterContext
-
-
 
   handleSubmitCharacter = ev => {
     ev.preventDefault()
@@ -30,7 +29,7 @@ export default class CharacterForm extends Component {
       magic,
       positionId,
     } = ev.target;
-    const character = {
+    const newCharacter = {
       character_name: character_name.value,
       character_id:  character_id.value,
       status: status.value,
@@ -46,13 +45,42 @@ export default class CharacterForm extends Component {
       userId: this.state.user_id,
       positionId: positionId.value,
     }
+
+    console.log(this.props)
+
+    CharacterService.postCharacter(
+      newCharacter.character_name,
+      newCharacter.character_id,
+      newCharacter.status,
+      newCharacter.age,
+      newCharacter.location,
+      newCharacter.personal_combat,
+      newCharacter.diplomacy,
+      newCharacter.rulership,
+      newCharacter.military_command,
+      newCharacter.heroism,
+      newCharacter.intrigue,
+      newCharacter.magic,
+      newCharacter.userId,
+      newCharacter.positionId,
+    )
+    .then(res => {
+      console.log(res);
+    })
+    .catch(res => {
+      this.setState({ error: res.error })
+      alert(JSON.stringify(this.state.error))
+    })
   }
 
   render() {
     return (
       <div className="Character-form">
         <section>
-          <form id="character-entry">
+          <form 
+            className='character-form'
+            id='character-entry'
+            onSubmit={this.handleSubmitCharacter}>
             <div className="form-section">
               <label htmlFor="character-name">Character name:</label>
               <input name="character_name" placeholder="Conan" required />
@@ -78,7 +106,7 @@ export default class CharacterForm extends Component {
             </div>
             <div className="form-section">
               <label htmlFor="personal-combat">Personal combat:</label>
-              <select name="ability-score" id="ability-score">
+              <select name="personal_combat" id="ability-score">
                 <option value="none">None</option>
                 <option value="poor">Poor</option>
                 <option value="adequate">Adequate</option>
@@ -89,7 +117,7 @@ export default class CharacterForm extends Component {
             </div>
             <div className="form-section">
               <label htmlFor="diplomacy">Diplomacy:</label>
-              <select name="ability-score" id="ability-score">
+              <select name="diplomacy" id="ability-score">
                 <option value="none">None</option>
                 <option value="poor">Poor</option>
                 <option value="adequate">Adequate</option>
@@ -100,7 +128,7 @@ export default class CharacterForm extends Component {
             </div>
             <div className="form-section">
               <label htmlFor="rulership">Rulership:</label>
-              <select name="ability-score" id="ability-score">
+              <select name="rulership" id="ability-score">
                 <option value="none">None</option>
                 <option value="poor">Poor</option>
                 <option value="adequate">Adequate</option>
@@ -111,7 +139,7 @@ export default class CharacterForm extends Component {
             </div>
             <div className="form-section">
               <label htmlFor="military-command">Military command:</label>
-              <select name="ability-score" id="ability-score">
+              <select name="military_command" id="ability-score">
                 <option value="none">None</option>
                 <option value="poor">Poor</option>
                 <option value="adequate">Adequate</option>
@@ -122,7 +150,7 @@ export default class CharacterForm extends Component {
             </div>
             <div className="form-section">
               <label htmlFor="heroism">Heroism:</label>
-              <select name="ability-score" id="ability-score">
+              <select name="heroism" id="ability-score">
                 <option value="none">None</option>
                 <option value="poor">Poor</option>
                 <option value="adequate">Adequate</option>
@@ -133,7 +161,7 @@ export default class CharacterForm extends Component {
             </div>
             <div className="form-section">
               <label htmlFor="intrigue">Intrigue:</label>
-              <select name="ability-score" id="ability-score">
+              <select name="intrigue" id="ability-score">
                 <option value="none">None</option>
                 <option value="poor">Poor</option>
                 <option value="adequate">Adequate</option>
@@ -144,7 +172,7 @@ export default class CharacterForm extends Component {
             </div>
             <div className="form-section">
               <label htmlFor="magic">Magic:</label>
-              <select name="ability-score" id="ability-score">
+              <select name="magic" id="ability-score">
                 <option value="none">None</option>
                 <option value="poor">Poor</option>
                 <option value="adequate">Adequate</option>
