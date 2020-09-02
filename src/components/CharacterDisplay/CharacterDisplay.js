@@ -28,7 +28,7 @@ export default class CharacterDisplay extends Component {
 
 
   render() {
-
+    console.log("character display props:" + JSON.stringify(this.props))
     if (!this.state.shouldRender) {
       return null
     }
@@ -41,7 +41,7 @@ export default class CharacterDisplay extends Component {
         <h3>
           Enter a new character for this position:
         </h3>
-        <CharacterForm />
+        <CharacterForm {...this.props}/>
       </section>
 
     )

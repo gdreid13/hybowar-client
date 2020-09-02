@@ -3,13 +3,7 @@ import CharacterContext from '../contexts/CharacterContext';
 import CharacterService from '../../services/CharacterService'
 
 export default class CharacterForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { 
-      position_id: '',
-      user_id: '',
-    }
-  };
+
   static contextType = CharacterContext
 
   handleSubmitCharacter = ev => {
@@ -17,7 +11,6 @@ export default class CharacterForm extends Component {
     const {
       character_name,
       character_id,
-      status,
       age,
       location,
       personal_combat,
@@ -27,12 +20,11 @@ export default class CharacterForm extends Component {
       heroism,
       intrigue,
       magic,
-      positionId,
     } = ev.target;
     const newCharacter = {
       character_name: character_name.value,
       character_id:  character_id.value,
-      status: status.value,
+      status: "Alive",
       age: age.value,
       location: location.value,
       personal_combat: personal_combat.value,
@@ -42,14 +34,16 @@ export default class CharacterForm extends Component {
       heroism: heroism.value,
       intrigue: intrigue.value,
       magic: magic.value,
-      userId: this.state.user_id,
-      positionId: positionId.value,
+//      user_id: this.props.match.params.userId,
+      position_id: this.props.match.params.positionId,
     }
 
-    console.log(this.props)
+    console.log("props: " + JSON.stringify(this.props, null, 2))
 
-    CharacterService.postCharacter(
-      newCharacter.character_name,
+    CharacterService.postCharacter(newCharacter, 
+      this.props.match.params.userId, 
+      this.props.match.params.positionId
+/*       newCharacter.character_name,
       newCharacter.character_id,
       newCharacter.status,
       newCharacter.age,
@@ -61,8 +55,8 @@ export default class CharacterForm extends Component {
       newCharacter.heroism,
       newCharacter.intrigue,
       newCharacter.magic,
-      newCharacter.userId,
-      newCharacter.positionId,
+      newCharacter.user_id,
+      newCharacter.position_id, */
     )
     .then(res => {
       console.log(res);
@@ -74,6 +68,7 @@ export default class CharacterForm extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div className="Character-form">
         <section>
@@ -87,13 +82,13 @@ export default class CharacterForm extends Component {
             </div>
             <div className="form-section">
               <label htmlFor="character-id">Character ID:</label>
-              <input name="character_id" placeholder="AQUI-20" required />
+              <input name="character_id" placeholder="AQUI-999" required />
             </div>
             <div className="form-section">
               <label htmlFor="age">Character age:</label>
               <select name="age" id="age">
                 <option value="youth">Youth</option>
-                <option value="young-adult">Young adult</option>
+                <option value="young adult">Young adult</option>
                 <option value="prime">Prime of life</option>
                 <option value="middle-aged">Middle aged</option>
                 <option value="old">Old</option>

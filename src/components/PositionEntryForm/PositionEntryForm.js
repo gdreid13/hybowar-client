@@ -6,12 +6,7 @@ import PositionService from '../../services/PositionService'
 import PositionContext from '../contexts/PositionContext'
 
 export default class PositionEntryForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { 
-      user_id: '',
-    }
-  };
+
   static contextType = PositionContext
 
   handleSubmitPosition = ev => {

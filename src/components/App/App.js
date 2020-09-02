@@ -89,7 +89,7 @@ export default class App extends Component {
             />
             <Route
               path={'/characters/:userId/:positionId'}
-              render={() => <CharacterDisplay userId={this.state.user_id} positionId={this.state.position_id}/>}
+              component={CharacterDisplay}
             />
             <Route
               component={NotFoundPage}
