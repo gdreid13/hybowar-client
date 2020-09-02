@@ -34,29 +34,13 @@ export default class CharacterForm extends Component {
       heroism: heroism.value,
       intrigue: intrigue.value,
       magic: magic.value,
-//      user_id: this.props.match.params.userId,
       position_id: this.props.match.params.positionId,
     }
 
-    console.log("props: " + JSON.stringify(this.props, null, 2))
 
     CharacterService.postCharacter(newCharacter, 
       this.props.match.params.userId, 
       this.props.match.params.positionId
-/*       newCharacter.character_name,
-      newCharacter.character_id,
-      newCharacter.status,
-      newCharacter.age,
-      newCharacter.location,
-      newCharacter.personal_combat,
-      newCharacter.diplomacy,
-      newCharacter.rulership,
-      newCharacter.military_command,
-      newCharacter.heroism,
-      newCharacter.intrigue,
-      newCharacter.magic,
-      newCharacter.user_id,
-      newCharacter.position_id, */
     )
     .then(res => {
       console.log(res);
@@ -68,7 +52,6 @@ export default class CharacterForm extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className="Character-form">
         <section>

@@ -14,7 +14,6 @@ export default class PositionSelectionPage extends Component {
 
   componentDidMount() {
     this.context.clearError()
-    console.log(this.state.error)
     PositionService.getPositions(this.props.userId)
       .then(data => {
         this.context.setPositions(data)
@@ -25,7 +24,6 @@ export default class PositionSelectionPage extends Component {
 
   renderPositions() {
     const { positions = [] } = this.context
-    console.log(positions)
     return positions.map(position =>
       <OptionListItem
         userId = {this.props.userId}

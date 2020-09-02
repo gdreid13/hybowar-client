@@ -28,7 +28,6 @@ export default class CharacterDisplay extends Component {
 
 
   render() {
-    console.log("character display props:" + JSON.stringify(this.props))
     if (!this.state.shouldRender) {
       return null
     }

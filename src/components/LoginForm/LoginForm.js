@@ -23,8 +23,6 @@ export default class LoginPage extends Component {
     AuthHelperService.postLogin(JSON.stringify(login))
       .then(res => {
         console.log(res);
-        // setUserId(payload.userId);
-        // console.log(this.state.userId);
         TokenService.saveAuthToken(res.authToken)
         user_name.value = ''
         password.value = ''

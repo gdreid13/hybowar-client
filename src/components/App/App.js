@@ -50,7 +50,6 @@ export default class App extends Component {
   }
 
   render() {
-    console.log(this.state)
     const userId = this.state.user_id
     const positionId = this.state.position_id
     return (

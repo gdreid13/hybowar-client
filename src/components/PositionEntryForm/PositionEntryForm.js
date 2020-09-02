@@ -18,8 +18,6 @@ export default class PositionEntryForm extends Component {
       nation: nation.value,
       user_id: this.props.userId
     }
-    
-    console.log(this.props)
 
     PositionService.postPosition(newPosition.user_id, newPosition.game_number, newPosition.nation)
       .then(res => {

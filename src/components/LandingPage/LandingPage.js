@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 export default class LandingPage extends Component {
   render() {
-    console.log(this.props.userId)
     return (
       <>
         <header className="App-header" role="banner">

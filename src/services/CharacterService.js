@@ -15,45 +15,14 @@ const CharacterService = {
       )
   },
 
-  postCharacter(newCharacter, userId, positionId
-//    userId,
-/*     character_name,
-    character_id,
-    status,
-    age,
-    location,
-    personal_combat,
-    diplomacy,
-    rulership,
-    military_command,
-    heroism,
-    intrigue,
-    magic,
-    positionId, */
-  ) {
-    console.log("userId:" + userId, "positionId:" + positionId)
+  postCharacter(newCharacter, userId, positionId) {
     return fetch(`${config.API_ENDPOINT}/characters/${userId}/${positionId}`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
-      body: JSON.stringify({ newCharacter
-/*         character_name: character_name,
-        character_id: character_id,
-        status: status,
-        age: age,
-        location: location,
-        personal_combat: personal_combat,
-        diplomacy: diplomacy,
-        rulership: rulership,
-        military_command: military_command,
-        heroism: heroism,
-        intrigue: intrigue,
-        magic: magic,
-        position_id: positionId, */
-//        user_id: userId
-      })
+      body: JSON.stringify({ newCharacter })
     })
       .then(res =>
         (!res.ok)

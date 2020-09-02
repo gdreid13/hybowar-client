@@ -6,7 +6,6 @@ export default class CharacterItem extends Component {
   static defaultProps = []
   
   render() {
-    console.log(this.props)
     return (
       <div className="Character">
         <p>Name: {this.props.character_name}</p>
