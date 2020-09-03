@@ -28,6 +28,7 @@ export default class Navbar extends Component {
     return (
       <div className='Header__logged-in'>
         <Link
+          activeClassName={}
           onClick={this.handleLogoutClick}
           to='/'>
           Logout
@@ -50,17 +51,6 @@ export default class Navbar extends Component {
       </div>
     )
   }
-
-/*   renderPositionsLink() {
-    return (
-      <div className='Header__link-to-app'>
-        <Link
-        to={`/positions/${this.props.user_id}`}>
-          List of your positions
-        </Link>
-      </div>
-    )
-  } */
 
 
   render() {
