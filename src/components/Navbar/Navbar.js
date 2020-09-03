@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import TokenServices from '../../services/TokenService'
+import TokenServices from '../../services/TokenService';
 import config from '../../config';
+import './Navbar.css';
 
 export default class Navbar extends Component {
 
@@ -28,7 +29,7 @@ export default class Navbar extends Component {
     return (
       <div className='Header__logged-in'>
         <Link
-          activeClassName={}
+          activeClassName={'Navbar__link'}
           onClick={this.handleLogoutClick}
           to='/'>
           Logout
@@ -42,10 +43,12 @@ export default class Navbar extends Component {
       <div className='Header__not-logged-in'>
         <Link
           to='/login'>
+          {' '}
           Log in
         </Link>
         <Link
           to='/register'>
+          {' '}
           Register
         </Link>
       </div>
