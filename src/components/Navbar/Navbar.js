@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import TokenServices from '../../services/TokenService';
 import config from '../../config';
+import { withRouter } from 'react-router-dom';
 import './Navbar.css';
 
-export default class Navbar extends Component {
+class Navbar extends Component {
 
   constructor(props) {
     super(props)
@@ -12,6 +13,7 @@ export default class Navbar extends Component {
       user_id: null
     }
   }
+  
   componentDidMount() {
 		const authToken = TokenServices.getAuthToken(config.TOKEN_KEY);
 		if (authToken) {
@@ -22,7 +24,6 @@ export default class Navbar extends Component {
   handleLogoutClick = () => {
     TokenServices.clearAuthToken()
     this.setState({ user_id: null })
-    this.forceUpdate()
   }
 
   renderLogoutLink() {
@@ -72,3 +73,5 @@ export default class Navbar extends Component {
     )
   }
 }
+
+export default withRouter(Navbar);

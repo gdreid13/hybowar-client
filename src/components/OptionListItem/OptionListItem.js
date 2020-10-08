@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default class OptionListItem extends Component {
   render () {
+    console.log(this.props)
     const { position } = this.props
     return (
       <Link to = {{

@@ -1,8 +1,8 @@
-
 import React, { Component } from 'react'
 import LoginForm from '../components/LoginForm/LoginForm'
+import { withRouter } from 'react-router-dom'
 
-export default class LoginPage extends Component {
+class LoginPage extends Component {
   static defaultProps = {
     location: {},
     history: {
@@ -28,3 +28,5 @@ export default class LoginPage extends Component {
     )
   }
 }
+
+export default withRouter(LoginPage);
