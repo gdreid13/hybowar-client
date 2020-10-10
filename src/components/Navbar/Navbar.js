@@ -23,7 +23,8 @@ class Navbar extends Component {
 
   handleLogoutClick = () => {
     TokenServices.clearAuthToken()
-    this.setState({ user_id: null })
+    this.props.setUserId(null)
+    this.props.history.push('/')
   }
 
   renderLogoutLink() {

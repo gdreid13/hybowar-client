@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import CharacterContext from '../contexts/CharacterContext';
-import CharacterService from '../../services/CharacterService'
+import CharacterContext from '../components/contexts/CharacterContext';
+import CharacterService from '../services/CharacterService'
 
 export default class CharacterForm extends Component {
 

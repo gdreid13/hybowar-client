@@ -2,13 +2,19 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 export default class OptionListItem extends Component {
+
+  componentDidMount() {
+
+  }
+
   render () {
     console.log(this.props)
+    console.log(this.props.location)
     const { position } = this.props
     return (
       <Link to = {{
         pathname: `/characters/${this.props.userId}/${this.props.positionId}`,
-        linkProps: {
+        state: {
           userId: this.props.userId,
           positionId: this.props.positionId
         }

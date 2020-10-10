@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import RegistrationForm from '../components/RegistrationForm/RegistrationForm'
+import RegistrationForm from '../forms/RegistrationForm'
 import { withRouter } from 'react-router-dom'
 
 class RegistrationPage extends Component {

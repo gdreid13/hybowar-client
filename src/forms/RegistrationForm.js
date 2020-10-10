@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AuthHelperService from '../../services/AuthHelperService';
+import AuthHelperService from '../services/AuthHelperService';
 
 export default class RegistrationForm extends Component {
   static defaultProps = {

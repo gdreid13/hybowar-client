@@ -27,7 +27,7 @@ export default class PositionSelectionPage extends Component {
     return positions.map(position =>
       <OptionListItem
         userId = {this.props.userId}
-        positionId = {position.position_id}
+        positionId = {position.id}
         game = {position.game_number}
         nation = {position.nation}
       />

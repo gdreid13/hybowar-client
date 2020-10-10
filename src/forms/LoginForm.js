@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import TokenService from '../../services/TokenService';
-import AuthHelperService from '../../services/AuthHelperService';
+import TokenService from '../services/TokenService';
+import AuthHelperService from '../services/AuthHelperService';
 import { Link } from 'react-router-dom';
 
 export default class LoginPage extends Component {
