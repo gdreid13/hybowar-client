@@ -21,11 +21,8 @@ export default class CharacterDisplay extends Component {
 
   componentDidMount() {
     this.context.clearError()
-    console.log("Checking state:" + this.state)
-    console.log("Checking props:" + this.props)
-    console.log("Checking location state:" + this.props.location.state)
-    const userId = this.props.userId
-    const positionId = this.props.positionId
+    const userId = this.props.location.state.userId
+    const positionId = this.props.location.state.positionId
     CharacterService.getCharacters(userId, positionId)
       .then(data => {
         const characters = data.map(character =>
