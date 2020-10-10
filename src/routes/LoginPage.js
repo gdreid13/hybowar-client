@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import LoginForm from '../components/LoginForm/LoginForm'
+import LoginForm from '../forms/LoginForm'
 import { withRouter } from 'react-router-dom'
 
 class LoginPage extends Component {

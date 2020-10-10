@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar'
 import CharacterDisplay from '../CharacterDisplay/CharacterDisplay';
-import LandingPage from '../LandingPage/LandingPage';
+import LandingPage from '../../routes/LandingPage';
 import PositionSelectionPage from '../../routes/PositionSelectionPage';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import LoginPage from '../../routes/LoginPage';
@@ -39,7 +39,7 @@ export default class App extends Component {
   }
 
   setPositionId = (positionId) => {
-    return this.setState ({ position_id: positionId })
+    return this.setState({ position_id: positionId })
   }
 
   componentDidMount() {
@@ -50,12 +50,10 @@ export default class App extends Component {
   }
 
   render() {
-    const userId = this.state.user_id
-    const positionId = this.state.position_id
     return (
       <div className="App">
         <nav className="App-nav">
-          <Navbar {...this.state} />
+          <Navbar {...this.state} setUserId={this.setUserId}/>
         </nav>
 
         <main className="App-main">
@@ -67,7 +65,10 @@ export default class App extends Component {
             <Route
               exact
               path={'/'}
-              render={() => <LandingPage userId={this.state.user_id} />}
+              render={() =>
+                <LandingPage
+                  userId={this.state.user_id}
+                />}
             />
             <Route
               path={'/login'}
@@ -80,15 +81,23 @@ export default class App extends Component {
             <Route
               exact
               path={'/positions'}
-              render={() => <PositionEntryPage userId={this.state.user_id} />}
+              render={() => <PositionEntryPage 
+                userId={this.state.user_id}
+                />}
             />
             <Route
               path={`/positions/:userId`}
-              render={() => <PositionSelectionPage userId={this.state.user_id} />}
+              render={() => <PositionSelectionPage
+                userId={this.state.user_id}
+                />}
             />
             <Route
               path={'/characters/:userId/:positionId'}
               component={CharacterDisplay}
+              userId={this.state.user_id}
+              positionId={this.props.positionId}
+              setUserId={this.setUserId}
+              setPositionId={this.setPositionId}
             />
             <Route
               component={NotFoundPage}

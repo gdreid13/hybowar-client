@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PositionEntryForm from '../PositionEntryForm/PositionEntryForm'
+import PositionEntryForm from '../../forms/PositionEntryForm'
 
 export default class PositionEntryPage extends Component {
   static defaultProps = {
@@ -20,7 +20,7 @@ export default class PositionEntryPage extends Component {
   render() {
     return (
       <section className='PositionEntryPage'>
-        <PositionEntryForm userId={this.props.userId}/>
+        <PositionEntryForm userId={this.props.userId} />
       </section>
     )
   }

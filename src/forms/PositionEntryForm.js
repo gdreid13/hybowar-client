@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
-import config from '../../config'
-import TokenService from '../../services/TokenService'
-import AuthHelperService from '../../services/AuthHelperService'
-import PositionService from '../../services/PositionService'
-import PositionContext from '../contexts/PositionContext'
+import PositionService from '../services/PositionService'
+import PositionContext from '../components/contexts/PositionContext'
 
 export default class PositionEntryForm extends Component {
 

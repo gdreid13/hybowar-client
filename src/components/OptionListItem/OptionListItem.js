@@ -8,10 +8,8 @@ export default class OptionListItem extends Component {
     return (
       <Link to = {{
         pathname: `/characters/${this.props.userId}/${this.props.positionId}`,
-        linkProps: {
-          userId: this.props.userId,
-          positionId: this.props.positionId
-        }
+        userId: this.props.userId,
+        positionId: this.props.positionId
       }
         
         }  className='PositionLink'>
