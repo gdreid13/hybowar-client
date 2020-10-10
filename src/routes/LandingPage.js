@@ -12,13 +12,13 @@ export default class LandingPage extends Component {
     return (
     <div className="intro">
       <section>
-        <h2>Keep track of all your position's characters, provinces, and armies here</h2>
-        <Link to="/positions/1">Click here to see a positions display</Link>
-        <Link to="/characters/1/1">Click here to see a character display</Link>
-      </section>
-      <section>
-        <p>Enter the information from your turns, and sort easily by traits and troop types</p>
-        <p>[<em>placeholder for screenshot of position/character entry fields</em>]</p>
+        <h2>To help those who play the game "Hyborian War" by RSI!</h2>
+        <h4>Having problems keeping track of your characters for your positions?  Look no further!</h4>
+        <h4>The HYBORIAN WAR HELPER can keep track of your characters for you!</h4>
+        <h4>LOG IN ABOVE to the demo account and check it out!  Username: demo, password: password</h4>
+        <a target="_blank" href="http://www.reality.com/hwpqa.htm">
+          If you don't know what Hyborian War is, click HERE for the FAQ!
+        </a>
       </section>
     </div>
     )
