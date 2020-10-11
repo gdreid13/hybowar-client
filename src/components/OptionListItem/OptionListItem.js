@@ -10,7 +10,6 @@ export default class OptionListItem extends Component {
   render () {
     console.log(this.props)
     console.log(this.props.location)
-    const { position } = this.props
     return (
       <Link to = {{
         pathname: `/characters/${this.props.userId}/${this.props.positionId}`,
