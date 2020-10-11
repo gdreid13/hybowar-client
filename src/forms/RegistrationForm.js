@@ -25,6 +25,7 @@ export default class RegistrationForm extends Component {
       })
       .catch(res => {
         this.setState({ error: res.message })
+        alert(JSON.stringify(this.state.error))
       })
   }
 
