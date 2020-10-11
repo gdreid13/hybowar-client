@@ -3,6 +3,7 @@ import CharacterItem from '../CharacterItem/CharacterItem';
 import CharacterContext from '../contexts/CharacterContext';
 import CharacterService from '../../services/CharacterService';
 import CharacterForm from '../../forms/CharacterForm';
+import { Link } from 'react-router-dom';
 
 export default class CharacterDisplay extends Component {
   static contextType = CharacterContext
@@ -40,16 +41,28 @@ export default class CharacterDisplay extends Component {
     }
 
     return (
-      <section>
-        <div className="Character-section">
-          {this.state.characters}
-        </div>
-        <h3>
-          Enter a new character for this position:
+      <>
+        <section>
+          <div className="Character-section">
+            {this.state.characters}
+          </div>
+          <h3>
+            Enter a new character for this position:
         </h3>
-        <CharacterForm {...this.props} />
-      </section>
-
+          <CharacterForm {...this.props} />
+        </section>
+        <section className="position-links">
+          <Link to="/positions" state={
+            { userId: this.props.userId }
+          }>
+            Click here to enter a new position
+            </Link>
+          <p></p>
+          <Link to={`/positions/${this.props.userId}`} userId={this.props.userId} position={this.props.positionId}>
+            Click here to see a list of your positions
+            </Link>
+        </section>
+      </>
     )
 
   }
