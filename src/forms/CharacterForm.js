@@ -72,7 +72,7 @@ export default class CharacterForm extends Component {
               <select name="age" id="age">
                 <option value="youth">Youth</option>
                 <option value="young adult">Young adult</option>
-                <option value="prime">Prime of life</option>
+                <option value="prime of life">Prime of life</option>
                 <option value="middle-aged">Middle aged</option>
                 <option value="old">Old</option>
                 <option value="ancient">Ancient</option>
