@@ -20,7 +20,9 @@ export default class PositionEntryPage extends Component {
   render() {
     return (
       <section className='PositionEntryPage'>
-        <PositionEntryForm userId={this.props.userId} />
+        <PositionEntryForm 
+        userId={this.props.userId}
+        onPositionEntrySuccess={this.handlePositionEntrySuccess} />
       </section>
     )
   }

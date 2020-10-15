@@ -18,7 +18,7 @@ export default class PositionEntryForm extends Component {
 
     PositionService.postPosition(newPosition.user_id, newPosition.game_number, newPosition.nation)
       .then(res => {
-        console.log(res);
+        this.props.onPositionEntrySuccess();
       })
       .catch(res => {
         this.setState({ error: res.error })

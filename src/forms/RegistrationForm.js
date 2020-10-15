@@ -43,7 +43,6 @@ export default class RegistrationForm extends Component {
       password: password.value,
     })
       .then(user => {
-
         user_name.value = ''
         password.value = ''
         this.props.onRegistrationSuccess()
