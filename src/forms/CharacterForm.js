@@ -24,7 +24,7 @@ export default class CharacterForm extends Component {
     const newCharacter = {
       character_name: character_name.value,
       character_id:  character_id.value,
-      status: "Alive",
+      status: "alive",
       age: age.value,
       location: location.value,
       personal_combat: personal_combat.value,
