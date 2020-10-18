@@ -1,0 +1,8 @@
+.Character__section {
+  background-image: linear-gradient(#0505058f,
+  #000000ad), 
+    url("../../assets/conan1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

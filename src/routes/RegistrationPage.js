@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import RegistrationForm from '../forms/RegistrationForm'
 import { withRouter } from 'react-router-dom'
+import './routing.css'
 
 class RegistrationPage extends Component {
   static defaultProps = {

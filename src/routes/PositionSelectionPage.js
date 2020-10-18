@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PositionContext from '../components/contexts/PositionContext';
 import PositionService from '../services/PositionService'
 import OptionListItem from '../components/OptionListItem/OptionListItem'
+import './routing.css'
 
 export default class PositionSelectionPage extends Component {
   static contextType = PositionContext
@@ -37,11 +38,11 @@ export default class PositionSelectionPage extends Component {
   render() {
     const { error } = this.context
     return (
-      <div className="position-selection-page">
+      <section className="Position_selection__section">
         {error
           ? <p className='red'>There was an error, try again</p>
           : this.renderPositions()}
-      </div>
+      </section>
   )}
 
 }
