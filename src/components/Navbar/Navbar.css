@@ -1,4 +1,9 @@
-/* .Navbar__link {
-  padding-left: 10px;
-  padding-right: 10px;
-} */
+.Nav__header {
+  padding: 10px;
+  background-image: linear-gradient(#0505058f,
+    #000000ad), 
+    url("../../assets/stonewall.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
