@@ -16,16 +16,16 @@ export default class LandingPage extends Component {
           <h4>Having problems keeping track of your characters for your positions?  Look no further!</h4>
           <h4>The HYBORIAN WAR HELPER can keep track of your characters for you!</h4>
           <h4>LOG IN ABOVE to the demo account and check it out!</h4>
-            <h4>Username: demo</h4>
-            <h4> Password: password</h4>
-          <p>If you don't know what Hyborian War is, click{' '}
+            <p>Username: demo</p>
+            <p> Password: password</p>
+          <h4>If you don't know what Hyborian War is, click{' '}
             <a target="_blank"
                 rel="noopener noreferrer"
                 href="http://www.reality.com/hwpqa.htm">
                 HERE
             </a>
             {' '}for the FAQ!
-          </p>
+          </h4>
         </section>
       </div>
     )

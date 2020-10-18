@@ -107,7 +107,9 @@ export default class App extends Component {
 
 
 
-        <footer className="Footer">Footer</footer>
+        <footer className="Footer">
+        <a href="mailto:gdreid13@gmail.com">Email the dev with feedback!</a>  
+        </footer>
       </div>
     )
   }
