@@ -60,7 +60,7 @@ class Navbar extends Component {
 
   render() {
     return (
-      <nav className='Header'>
+      <nav className='Nav__header'>
         <h1>
           <Link to='/'>
             {' '}
