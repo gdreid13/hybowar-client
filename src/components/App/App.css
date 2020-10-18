@@ -59,8 +59,9 @@ section {
   min-height: 30vh;
   padding: 6% 0;
   background-image: linear-gradient(#0505058f,
-    #000000ad), 
-    url("../../assets/stonewall.jpg");
+    #000000ad),
+    url("../../assets/brittlestone.jpeg");
+    
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -68,7 +69,12 @@ section {
 }
 
 section:nth-child(even) {
-  background-color: #ddd;
+  background-image: linear-gradient(#0505058f,
+  #000000ad), 
+    url("../../assets/stonewall.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .position-links {
@@ -77,6 +83,7 @@ section:nth-child(even) {
 
 .Footer {
   min-height: 20px;
+  padding: 10px;
   background-image: linear-gradient(#0505058f,
     #000000ad), 
     url("../../assets/wood-47.jpg");

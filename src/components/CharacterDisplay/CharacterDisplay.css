@@ -1,8 +1,22 @@
 .Character__section {
   background-image: linear-gradient(#0505058f,
   #000000ad), 
-    url("../../assets/conan1.jpg");
+    url("../../assets/conan3.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.Position_links__section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Character_list__div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }

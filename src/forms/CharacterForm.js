@@ -54,7 +54,7 @@ export default class CharacterForm extends Component {
   render() {
     return (
       <div className="Character-form">
-        <section>
+        <div>
           <form 
             className='character-form'
             id='character-entry'
@@ -161,7 +161,7 @@ export default class CharacterForm extends Component {
             </div>
             <button type='submit'>Submit</button>
           </form>
-        </section>
+        </div>
       </div>
     )
   }
