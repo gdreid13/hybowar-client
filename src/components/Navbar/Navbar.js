@@ -31,7 +31,6 @@ class Navbar extends Component {
     return (
       <div className='Header__logged-in'>
         <Link
-          activeClassName={'Navbar__link'}
           onClick={this.handleLogoutClick}
           to='/'>
           Logout

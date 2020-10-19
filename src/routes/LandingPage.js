@@ -40,7 +40,13 @@ export default class LandingPage extends Component {
           Click here to enter a new position
         </Link>
         <p></p>
-        <Link to={`/positions/${this.props.userId}`} userId={this.props.userId} position={this.props.positionId}>
+        <Link to ={{
+          pathname: `/positions/${this.props.userId}`,
+          state: {
+            userId: this.props.userId,
+            positionId: this.props.positionId
+          }
+        }}>
           Click here to see a list of your positions
         </Link>
       </section>
@@ -59,7 +65,6 @@ export default class LandingPage extends Component {
   }
 
   render() {
-    console.log(this.props.userId)
     const userId = this.props.userId
     const landingPage =
       userId == false

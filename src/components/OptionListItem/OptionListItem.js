@@ -7,17 +7,17 @@ export default class OptionListItem extends Component {
 
   }
 
-  render () {
+  render() {
     return (
-      <Link to = {{
+      <Link to={{
         pathname: `/characters/${this.props.userId}/${this.props.positionId}`,
         state: {
           userId: this.props.userId,
           positionId: this.props.positionId
         }
       }
-        
-        }  className='PositionLink'>
+
+      } className='PositionLink'>
         <div>
           <p>Game: {this.props.game}, Nation: {this.props.nation}</p>
         </div>

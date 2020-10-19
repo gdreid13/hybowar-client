@@ -7,7 +7,7 @@ export default class CharacterItem extends Component {
   
   render() {
     return (
-      <div className="Character_stats__div">
+      <div className="Character_stats__div" key={this.props.id}>
         <p>Name: {this.props.character_name}</p>
         <p>ID: {this.props.character_id}</p>
         <p>Status: {this.props.status}</p>

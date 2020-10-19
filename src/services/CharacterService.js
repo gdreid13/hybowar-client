@@ -3,7 +3,6 @@ import TokenService from '../services/TokenService'
 
 const CharacterService = {
   getCharacters(userId, positionId) {
-    console.log("userId: " + userId, " positionId: " + positionId)
     return fetch(`${config.API_ENDPOINT}/characters/${userId}/${positionId}`, {
       headers: {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
