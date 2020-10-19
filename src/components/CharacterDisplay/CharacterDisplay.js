@@ -54,7 +54,7 @@ export default class CharacterDisplay extends Component {
           </h3>
           <CharacterForm {...this.props} />
         </section>
-        <section className="position-links">
+        <section className="Position_links__section">
           <Link to="/positions" state={
             { userId: this.props.userId }
           }>

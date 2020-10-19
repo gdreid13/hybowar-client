@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import CharacterContext from '../contexts/CharacterContext';
-
+import './CharacterItem.css'
 export default class CharacterItem extends Component {
   static contextType = CharacterContext
   static defaultProps = []
   
   render() {
     return (
-      <div className="Character">
+      <div className="Character_stats__div">
         <p>Name: {this.props.character_name}</p>
         <p>ID: {this.props.character_id}</p>
         <p>Status: {this.props.status}</p>
