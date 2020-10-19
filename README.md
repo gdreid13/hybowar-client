@@ -49,5 +49,4 @@ https://github.com/gdreid13/hybowar-helper-server
 * Track provinces and troops
 
 ## Developed by:
-
 [Greg Reid](https://github.com/gdreid13)
