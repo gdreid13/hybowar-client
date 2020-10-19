@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AuthHelperService from '../services/AuthHelperService';
 import ValidationError from '../components/ValidationError/ValidationError'
+import './forms.css'
 
 export default class RegistrationForm extends Component {
   static defaultProps = {
