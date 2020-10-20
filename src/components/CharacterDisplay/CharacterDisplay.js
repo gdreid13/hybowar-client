@@ -32,8 +32,8 @@ class CharacterDisplay extends Component {
 
   componentDidMount() {
     this.setState({ error: null })
-    const userId = this.props.location.state.userId || this.state.userId
-    const positionId = this.props.location.state.positionId || this.state.positionId
+    const userId = this.props.location.state.userId || this.props.userId
+    const positionId = this.props.location.state.positionId || this.props.positionId
     CharacterService.getCharacters(userId, positionId)
       .then(data => {
         const characters = data

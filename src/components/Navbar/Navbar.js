@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import TokenServices from '../../services/TokenService';
 import config from '../../config';
-import { withRouter } from 'react-router-dom';
 import './Navbar.css';
 
 class Navbar extends Component {

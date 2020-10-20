@@ -53,7 +53,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <nav className="App-nav">
-          <Navbar {...this.state} setUserId={this.setUserId}/>
+          <Navbar {...this.state} setUserId={this.setUserId} />
         </nav>
 
         <main className="App-main">
@@ -81,15 +81,15 @@ export default class App extends Component {
             <Route
               exact
               path={'/positions'}
-              render={() => <PositionEntryPage 
+              render={() => <PositionEntryPage
                 userId={this.state.user_id}
-                />}
+              />}
             />
             <Route
               path={`/positions/:userId`}
               render={() => <PositionSelectionPage
                 userId={this.state.user_id}
-                />}
+              />}
             />
             <Route
               path={'/characters/:userId/:positionId'}
@@ -108,7 +108,7 @@ export default class App extends Component {
 
 
         <footer className="Footer">
-        <a href="mailto:gdreid13@gmail.com">Email the dev with feedback!</a>  
+          <a href="mailto:gdreid13@gmail.com">Email the dev with feedback!</a>
         </footer>
       </div>
     )
