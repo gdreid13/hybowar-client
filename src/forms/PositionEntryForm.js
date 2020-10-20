@@ -18,6 +18,10 @@ export default class PositionEntryForm extends Component {
 
   static contextType = PositionContext
 
+  static defaultProps = {
+    onPositionEntrySuccess: () => {}
+  }
+
   setPositions = positions => {
     return this.setState({ positions: [...positions] })
   }
@@ -52,8 +56,11 @@ export default class PositionEntryForm extends Component {
       newPosition.user_id,
       newPosition.game_number,
       newPosition.nation)
-      .then(res => {
-        this.props.onPositionEntrySuccess();
+      .then(position => {
+        game_number.value = ''
+        this.props.onPositionEntrySuccess(
+          position.user_id, position.id
+        )
       })
       .catch(res => {
         this.setState({ error: res.error })
@@ -73,7 +80,6 @@ export default class PositionEntryForm extends Component {
     const posError = (!game_number.value)
       ? false
       : this.validatePosition(game_number.value);
-
     return (
       <section className='position-entry-page'>
         <header>

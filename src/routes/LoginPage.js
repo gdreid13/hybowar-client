@@ -12,8 +12,6 @@ class LoginPage extends Component {
   }
 
   handleLoginSuccess = (userId) => {
-  //  const { location, history } = this.props
-  //  const destination = (location.state || {}).from || '/'
     this.props.setUserId(userId)
     this.props.history.push('/')
   }

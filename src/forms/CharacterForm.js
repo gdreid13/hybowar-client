@@ -18,6 +18,10 @@ export default class CharacterForm extends Component {
 
   static contextType = CharacterContext
 
+  static defaultProps = {
+    onCharacterEntrySuccess: () => {}
+  }
+
   setCharacters = characters => {
     return this.setState({ characters: [...characters] })
   }
@@ -71,14 +75,17 @@ export default class CharacterForm extends Component {
       magic: magic.value,
       position_id: this.props.match.params.positionId,
     }
-
-
-    CharacterService.postCharacter(newCharacter,
+    this.setState({ error: null })
+    CharacterService.postCharacter(
+      newCharacter,
       this.props.match.params.userId,
       this.props.match.params.positionId
     )
-      .then(res => {
-        console.log(res);
+      .then(character => {
+        character_id.value = ''
+        this.props.onCharacterEntrySuccess(
+          this.props.location.state.userId
+        )
       })
       .catch(res => {
         this.setState({ error: res.error })

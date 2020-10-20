@@ -3,16 +3,17 @@ import CharacterItem from '../CharacterItem/CharacterItem';
 import CharacterContext from '../contexts/CharacterContext';
 import CharacterService from '../../services/CharacterService';
 import CharacterForm from '../../forms/CharacterForm';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import './CharacterDisplay.css'
 
-export default class CharacterDisplay extends Component {
+class CharacterDisplay extends Component {
   static contextType = CharacterContext
   state = {
     characters: [],
     shouldRender: false,
     userId: null,
-    positionId: null
+    positionId: null,
+    error: null
   }
 
   static defaultProps = {
@@ -21,19 +22,30 @@ export default class CharacterDisplay extends Component {
     positionId: null
   }
 
+  setUserId = (userId) => {
+    return this.setState({ user_id: userId })
+  }
+
+  setPosition = (positionId) => {
+    return this.setState({ position_id: positionId })
+  }
+
   componentDidMount() {
-    this.context.clearError()
-    const userId = this.props.location.state.userId
-    const positionId = this.props.location.state.positionId
+    this.setState({ error: null })
+    const userId = this.props.location.state.userId || this.state.userId
+    const positionId = this.props.location.state.positionId || this.state.positionId
     CharacterService.getCharacters(userId, positionId)
       .then(data => {
         const characters = data
         this.setState({ characters: characters, shouldRender: true })
       })
-      .catch(this.context.setError)
+      .catch(this.setState.error = 'Something went wrong')
   }
 
-
+  handleCharacterEntrySuccess = (userId) => {
+    this.setUserId(userId)
+    this.props.history.push(`/positions/${userId}`)
+  }
 
   render() {
     if (!this.state.shouldRender) {
@@ -44,11 +56,11 @@ export default class CharacterDisplay extends Component {
         <section className="Character__section">
           <div className="Character_list__div">
             {this.state.characters.map(character => (
-                <React.Fragment key={character.id}>
-                  <CharacterItem
-                    {...character} />
-                </React.Fragment>
-              )
+              <React.Fragment key={character.id}>
+                <CharacterItem
+                  {...character} />
+              </React.Fragment>
+            )
             )}
           </div>
         </section>
@@ -56,7 +68,9 @@ export default class CharacterDisplay extends Component {
           <h3>
             Enter a new character for this position:
           </h3>
-          <CharacterForm {...this.props} />
+          <CharacterForm
+            onCharacterEntrySuccess={this.handleCharacterEntrySuccess}
+            {...this.props} />
         </section>
         <section className="Position_links__section">
           <Link to="/positions" state={
@@ -79,3 +93,5 @@ export default class CharacterDisplay extends Component {
     )
   }
 }
+
+export default withRouter(CharacterDisplay)

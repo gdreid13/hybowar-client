@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import PositionEntryForm from '../../forms/PositionEntryForm'
+import { withRouter } from 'react-router-dom'
 
-export default class PositionEntryPage extends Component {
+class PositionEntryPage extends Component {
   static defaultProps = {
     location: {},
     history: {
@@ -9,12 +10,18 @@ export default class PositionEntryPage extends Component {
     },
   }
 
+  setUserId = (userId) => {
+    return this.setState ({ user_id: userId })
+  }
+
+  setPosition = (positionId) => {
+    return this.setState({ position_id: positionId })
+  }
+
   handlePositionEntrySuccess = (userId, positionId) => {
-    const { location, history } = this.props
-    const destination = (location.state || {}).from || '/'
-    this.props.setUserId(userId)
-    this.props.setPosition(positionId)
-    history.push(destination)
+    this.setUserId(userId)
+    this.setPosition(positionId)
+    this.props.history.push(`/positions/${userId}`)
   }
 
   render() {
@@ -22,8 +29,11 @@ export default class PositionEntryPage extends Component {
       <section className='PositionEntryPage'>
         <PositionEntryForm 
         userId={this.props.userId}
+        history={this.props.history}
         onPositionEntrySuccess={this.handlePositionEntrySuccess} />
       </section>
     )
   }
 }
+
+export default withRouter(PositionEntryPage);
